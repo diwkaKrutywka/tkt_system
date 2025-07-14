@@ -8,7 +8,20 @@ const MenuList = [
         expand: false,
         children: [],
     },
-   
+    {
+        name: $t("l_Users"),
+        icon: "group",
+        routerPath: "/all",
+        expand: false,
+        children: [],
+    },
+    {
+        name: $t("l_Users"),
+        icon: "group",
+        routerPath: "/all",
+        expand: false,
+        children: [],
+    },
 ]
 
 export default MenuList

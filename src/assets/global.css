@@ -12,11 +12,3 @@ html * {
   font-family: 'Material Symbols Outlined' !important;
 }
 /* Force Ant Design Vue primary button color to pink */
-.ant-btn-primary {
-  background-color: #2EC445 !important;
-  border-color: #2EC445 !important;
-}
-.ant-btn-primary:hover, .ant-btn-primary:focus {
-  background-color: #db2777 !important; /* Tailwind's pink-600 */
-  border-color: #db2777 !important;
-}

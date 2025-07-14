@@ -5,5 +5,6 @@ export default {
   l_Remember: "Do not remember your password?",
   l_Password:"Password",
   l_Username:"Username",
-  l_Sign_in:"Sign In"
+  l_Sign_in:"Sign In",
+  l_Enter_detail:"Enter info to authentification"
 };

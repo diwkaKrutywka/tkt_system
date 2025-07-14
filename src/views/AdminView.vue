@@ -2,9 +2,10 @@
     <div>
         <div class="flex h-screen w-full overflow-hidden">
             <div class="h-full hidden md:block">
-                <div class="h-full flex flex-col bg-[#091524] text-gray-200 w-[220px] overflow-hidden relative">
+                <div class="h-full flex flex-col bg-[#f5f6f7] text-gray-200 w-[220px] overflow-hidden relative">
                     <div class="flex items-center justify-center pt-4 pb-4 border-b px-3">
-                        <img class="h-16" src="../assets/logo.svg"/>
+                        <heartPulse />
+                        <p class="font-manrope text-sm text-black font-bold ml-3 my-auto">Almaty Digital <br> Medical Center</p>
                     </div>
                     <div class="flex-1 overflow-y-auto">
                         <MenuBox></MenuBox>
@@ -28,10 +29,12 @@
 <script>
 import MenuBox from "../components/menu-bar.vue"
 import AdminTopBox from "../components/admin-top-box.vue"
+import heartPulse from '../icons/heartPulse.vue';
 export default{
     components:{
         MenuBox,
-        AdminTopBox
+        AdminTopBox,
+        heartPulse
     }
 }
 </script>

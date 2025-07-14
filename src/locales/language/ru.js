@@ -5,5 +5,6 @@ export default {
   l_Remember: "Забыли пароль?",
   l_Password:"Пароль",
   l_Username:"Логин",
-  l_Sign_in:"Вход"
+  l_Sign_in:"Вход",
+  l_Enter_detail:"Введите данные для входа"
 };
