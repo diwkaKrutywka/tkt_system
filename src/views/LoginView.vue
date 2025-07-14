@@ -7,16 +7,17 @@
         <img class="object-cover m-auto opacity-80" src="../assets/il3.jpg" alt="login" />
       </div>
       <div class="w-1/2 h-full flex items-center justify-center">
-        <div class="login-card glassmorphism w-96 z-10 flex flex-col gap-6 p-8 shadow-2xl">
-          <div class="font-extrabold text-3xl text-white text-center tracking-wide mb-2">
-            Sign In
+        <div class=" glassmorphism w-96 z-10 flex flex-col gap-6 p-8 shadow-2xl">
+          <div class="font-extrabold text-3xl text-white text-center tracking-wide mb-2">{{ $t('l_Sign_in') }}</div>
+          <div>
+
+            <Input id="username" size="large" class="input-dark" v-model:value="info.username"
+              :placeholder="$t('l_Username')" />
           </div>
           <div>
-            <Input id="username" size="large" class="input-dark" v-model:value="info.username" placeholder="Username" />
-          </div>
-          <div>
-            <Input id="password" size="large" class="input-dark" v-model:value="info.password" placeholder="Password"
-              type="password" />
+
+            <Input id="password" size="large" class="input-dark" v-model:value="info.password"
+              :placeholder="$t('l_Password')" type="password" />
           </div>
 
           <div
@@ -24,8 +25,8 @@
             @click="onLogin">
             {{ $t("l_Login") }}
           </div>
-          <div class="forgot-password-link mb-2">
-            <span class="forgot-link">Do not remember your password?</span>
+          <div class="forgot-password-link  mb-2">
+            <span class="forgot-link">{{ $t('l_Remember') }}</span>
           </div>
         </div>
       </div>
@@ -34,9 +35,9 @@
 </template>
 
 <script>
-import { Button, Input } from "ant-design-vue";
-import ChangeLanguageBox from "../components/change-language-box.vue";
-import { useAuthActions } from "../store/authActions";
+import { Button, Input } from "ant-design-vue"
+import ChangeLanguageBox from "../components/change-language-box.vue"
+import { ApiApi } from "../api/api"
 
 export default {
   components: {
@@ -49,30 +50,25 @@ export default {
       info: {
         username: "",
         password: "",
-        doctorsActions: null, // We'll assign this in `created`
+
       },
     };
   },
 
   methods: {
-    // this.$router.replace({
-    //   name: "AdminView",
-    // });
-    async onLogin() {
-      if (!this.info.username || !this.info.password) return;
-
-      try {
-        await this.doctorsActions.login(this.info); // <-- Call the action here
-        this.$router.replace({ name: "AdminView" }); // navigate after successful login
-      } catch (err) {
-        console.error("Login failed:", err);
-      }
-
+    onLogin() {
+      if (!this.info.username || !this.info.password) return
+      ApiApi('login', this.info, 'POST').then((res) => {
+        if (res.status == 200) {
+          this.$router.push("AdminView")
+        }
+        else {
+          console.log('error')
+        }
+      })
     },
   },
-  created() {
-    this.doctorsActions = useAuthActions(); // <-- Pinia composable or actions
-  },
+
 };
 </script>
 
