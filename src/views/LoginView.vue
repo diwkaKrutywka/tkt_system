@@ -35,7 +35,8 @@
 <script>
 import { Button, Input } from "ant-design-vue"
 import ChangeLanguageBox from "../components/change-language-box.vue"
-import config from "@/config"
+import config from "../config"
+import { ApiApi } from "../api/api"
 const BaseUrl = config.baseURL
 export default {
   components: {
@@ -54,16 +55,13 @@ export default {
   methods: {
     onLogin() {
          if (!this.info.username || !this.info.password) return
-            http({
-                url: BaseUrl + "auth/login",
-                data: this.info,
-            }).then((res) => {
-                if (res.status == 0) {
-                  
-                    this.$router.replace({
-                        name: "AdminView",
-                    })
-                }
+            ApiApi('login', this.info, 'POST').then((res)=>{
+              if(res.status==200){
+                this.$router.push("AdminView")
+              }
+              else{
+                console.log('error')
+              }
             })
     },
   },

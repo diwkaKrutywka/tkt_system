@@ -5,3 +5,18 @@
 	/*src: url('https://object.pscloud.io/front-s3/web/admin/20240912112032_5c246ade-d20b-4a5d-9cc4-8e576425069e.ttf');*/
 
 }
+html * {
+  font-family: 'Manrope', Arial, sans-serif !important;
+}
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+}
+/* Force Ant Design Vue primary button color to pink */
+.ant-btn-primary {
+  background-color: #2EC445 !important;
+  border-color: #2EC445 !important;
+}
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  background-color: #db2777 !important; /* Tailwind's pink-600 */
+  border-color: #db2777 !important;
+}
