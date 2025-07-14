@@ -6,15 +6,15 @@
         <img class=" object-cover m-auto opacity-80" src="../assets/il3.jpg" alt="login" />
       </div>
       <div class="w-1/2 h-full flex items-center justify-center">
-        <div class="login-card glassmorphism w-96 z-10 flex flex-col gap-6 p-8 shadow-2xl">
-          <div class="font-extrabold text-3xl text-white text-center tracking-wide mb-2">Sign In</div>
+        <div class=" glassmorphism w-96 z-10 flex flex-col gap-6 p-8 shadow-2xl">
+          <div class="font-extrabold text-3xl text-white text-center tracking-wide mb-2">{{ $t('l_Sign_in') }}</div>
           <div>
           
-            <Input id="username" size="large" class="input-dark" v-model:value="info.username" placeholder="Username" />
+            <Input id="username" size="large" class="input-dark" v-model:value="info.username" :placeholder="$t('l_Username')" />
           </div>
           <div>
            
-            <Input id="password" size="large" class="input-dark" v-model:value="info.password" placeholder="Password" type="password" />
+            <Input id="password" size="large" class="input-dark" v-model:value="info.password" :placeholder="$t('l_Password')" type="password" />
           </div>
         
           <div
@@ -24,7 +24,7 @@
             {{ $t("l_Login") }}
           </div>
            <div class="forgot-password-link  mb-2">
-            <span class="forgot-link">Do not remember your password?</span>
+            <span class="forgot-link">{{ $t('l_Remember') }}</span>
           </div>
         </div>
       </div>
