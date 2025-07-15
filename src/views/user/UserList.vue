@@ -11,13 +11,20 @@
             </template>
 
         </a-page-header>
+        <CardsList />
     </div>
 </template>
 <script>
+import CardsList from '../../components/CardsList.vue';
+
 export default {
     data() {
 
     },
+    components: {
+        CardsList,
+    },
+
 
 }
-</script>    
+</script>
