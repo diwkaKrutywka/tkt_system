@@ -2,8 +2,8 @@
     <div class="flex flex-col mt-3 mb-3 gap-2 text-sm">
         <div v-for="(menu, index) in menuList" :key="index">
             <div
-                class="flex items-center gap-1 p-2 cursor-pointer mx-1 rounded overflow-hidden"
-                :class="menu.routerPath == menuPath ? 'bg-[#2EC445] text-white' : ''"
+                class="flex items-start gap-1 p-2 cursor-pointer mx-1 rounded overflow-hidden"
+                :class="menu.routerPath == menuPath ? 'bg-blue-200 text-blue-500 font-bold' : 'text-gray-500 '"
                 @click="
                     () => {
                         if (menu.children.length > 0) {
@@ -14,12 +14,12 @@
                     }
                 ">
                 <div class="text-xl material-symbols-outlined">{{ menu.icon }}</div>
-                <div class="flex-1 text-ellipsis whitespace-nowrap overflow-hidden">{{ menu.name }}</div>
+                <div class=" text-ellipsis whitespace-nowrap overflow-hidden">{{ menu.name }}</div>
                 <div v-if="menu.children.length > 0" class="material-symbols-outlined cursor-pointer text-xl transition-transform" :class="openPathList.includes(menu.routerPath) ? 'rotate-90' : ''">chevron_right</div>
             </div>
             <div v-if="openPathList.includes(menu.routerPath) && menu.children.length > 0" class="border-l ml-4 border-gray-600">
                 <div v-for="(child, childIndex) in menu.children" :key="childIndex" class="p-2 mx-2 flex gap-2 items-center cursor-pointer rounded overflow-hidden" :class="child.routerPath == menuPath ? 'bg-blue-500 text-white' : ''" @click="() => onClckMenu(child.routerPath)">
-                    <div class="flex-1 text-ellipsis whitespace-nowrap overflow-hidden">{{ child.name }}</div>
+                    <div class=" text-ellipsis whitespace-nowrap overflow-hidden">{{ child.name }}</div>
                 </div>
             </div>
         </div>
