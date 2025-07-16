@@ -23,7 +23,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-100 mt-4">
 
             <!-- Блок 5: Последняя активность -->
-            <BaseCard v-for="card in inforamationData" :key="card.id" :title="card.title" :subtitle="card.subtitle">
+            <BaseCard>
                 <template #content>
                     <div class="activity-list">
                         <div v-for="item in inforamationData[0].data.activities" :key="item.id" class="activity-item">
