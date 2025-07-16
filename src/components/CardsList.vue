@@ -4,7 +4,7 @@
 
         <!-- маленькие блоки -->
         <!-- Блок 1: Мои обращения -->
-        <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
 
 
@@ -20,12 +20,12 @@
 
         </div>
         <!-- большие блоки -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-100 mt-4">
+        <div v-if="inforamationData[0]" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-4">
 
             <!-- Блок 5: Последняя активность -->
-            <BaseCard>
+            <BaseCard :bigCard="true" :title="inforamationData[0].title" :subtitle="inforamationData[0].subtitle">
                 <template #content>
-                    <div class="activity-list">
+                    <div class="activity-list text-left">
                         <div v-for="item in inforamationData[0].data.activities" :key="item.id" class="activity-item">
                             <div class="activity-indicator" :class="item.status"></div>
                             <div class="activity-content">
@@ -39,9 +39,9 @@
             </BaseCard>
 
             <!-- Блок 6: Быстрые действия -->
-            <BaseCard title="Быстрые действия" subtitle="Часто используемые функции">
+            <BaseCard :bigCard="true" title="Быстрые действия" subtitle="Часто используемые функции">
                 <template #content>
-                    <div class="quick-actions">
+                    <div class="quick-actions text-left">
                         <button class="action-btn primary">
                             <span class="action-icon">+</span>
                             Создать новое обращение

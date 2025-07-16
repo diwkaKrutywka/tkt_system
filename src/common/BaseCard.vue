@@ -4,8 +4,8 @@
     <!-- Заголовок карточки -->
     <div class="card-header">
       <slot name="header">
-        <h3 class="card-title">{{ title }}</h3>
-        <p class="card-subtitle" v-if="subtitle">{{ subtitle }}</p>
+        <h3 class="card-title " :class="{ bigCardTitle: bigCard }">{{ title }}</h3>
+        <p class="card-subtitle text-left" v-if="subtitle">{{ subtitle }}</p>
       </slot>
     </div>
 
@@ -29,6 +29,10 @@
 export default {
   name: 'BaseCard',
   props: {
+    bigCard: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: ''
@@ -62,6 +66,11 @@ export default {
 
 .card-header {
   margin-bottom: 16px;
+}
+
+.bigCardTitle {
+  text-align: left;
+  font-size: 24px !important;
 }
 
 .card-title {
